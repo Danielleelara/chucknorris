@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Filter from "../components/Filter";
 
 interface ChuckProps {
   value?: string;
@@ -7,39 +8,38 @@ interface ChuckProps {
 }
 
 const Home = () => {
-  const [dados, setDados] = useState<ChuckProps>();
+  //   const [dados, setDados] = useState<ChuckProps>();
 
-  const getDados = async () => {
-    try {
-      const res = await fetch("https://api.chucknorris.io/jokes/random", {
-        method: "GET",
-      });
-      const response = await res.json();
-      setDados(response);
-      console.log("Dados", dados);
-      return await response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   const getDados = async () => {
+  //     try {
+  //       const res = await fetch(`api/jokes/random`, {
+  //         method: "GET",
+  //       });
+  //       const response = await res.json();
+  //       console.log(response);
+  //       setDados(response);
+  //       return await response;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-  useEffect(() => {
-    getDados();
-  }, []);
-
-  console.log(dados);
+  //   useEffect(() => {
+  //     getDados();
+  //   }, []);
 
   return (
     <div
       style={{
         background: "white",
         textAlign: "center",
-        margin: "0 auto",
+        margin: "100px auto",
         color: "red",
       }}
     >
-      <h1>Clique para ver uma piada do Chuck Norris</h1>
-      <p>{dados?.value || "sem registro"}</p>
+      <h1>Piadas do Chuck Norris</h1>
+      <Filter />
+      {/* <p>{dados?.value || "sem registro"}</p>
       <p>Criada em : {dados?.created_at || "sem registro"}</p>
       <p>
         Categoria: {!!dados?.categories ? dados?.categories[0] : "sem registro"}
@@ -59,8 +59,8 @@ const Home = () => {
           }}
         >
           Nova Piada
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
     </div>
   );
 };

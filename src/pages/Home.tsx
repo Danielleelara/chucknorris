@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 interface ChuckProps {
   value?: string;
   created_at?: string;
-  categories?: string | undefined;
+  categories?: string;
 }
 
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
       <p>{dados?.value || "sem registro"}</p>
       <p>Criada em : {dados?.created_at || "sem registro"}</p>
       <p>
-        Categoria: {dados?.categories ? dados?.categories[0] : "sem registro"}
+        Categoria: {!!dados?.categories ? dados?.categories[0] : "sem registro"}
       </p>
       <div>
         <button

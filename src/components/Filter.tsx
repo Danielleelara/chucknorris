@@ -7,7 +7,7 @@ interface ChuckProps {
 }
 
 const Filter = () => {
-  const [selectValue, setSelectValue] = useState("");
+  const [selectValue, setSelectValue] = useState("animal");
   const [dados, setDados] = useState<ChuckProps>();
   const [category, setCategory] = useState([]);
 
@@ -34,10 +34,12 @@ const Filter = () => {
       return await response;
     } catch (error) {
       console.log(error);
+      alert("DEU ERRO");
     }
   };
 
   useEffect(() => {
+    getDetails();
     getCategory();
   }, []);
 
@@ -51,27 +53,6 @@ const Filter = () => {
       }}
     >
       <h1>Escolha uma piada por categoria </h1>
-      <label
-        htmlFor="categoria"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          margin: "0 100px",
-        }}
-      >
-        {/* Categorias:
-        {category.map((category: string) => (
-          <p>{category}</p>
-        ))} */}
-      </label>
-      {/* <input
-        type="text"
-        id="categoria"
-        name="categoria"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      /> */}
       <select
         name="categoria"
         id="categoria"
